@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjective Test</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 5rem;
+        }
+
+        img {
+            height: 25rem;
+            width: auto;
+            margin: 0 8px;
+            padding: 1rem;
+        }
+
+        button {
+            width: 18rem;
+            margin-top: 4rem;
+            padding: 0.75rem 3rem;
+            border: none;
+            background-color: #78A55A;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            color: white;
+            margin: 2rem 2rem;
+        }
+
+        .opt0 {
+            background-color: #c80000b4;
+        }
+        .opt1 {
+            background-color: #0a79b0b4;
+        }
+        .opt2 {
+            background-color: #0a79b0b4;
+        }
+        .opt3 {
+            background-color: #78A55A;
+            /* margin-right: 0; */
+        }
+
+        .opt0:hover {
+            background-color: #df2525;
+        }
+        .opt1:hover {
+            background-color: #0a638fb4;
+        }
+        .opt2:hover {
+            background-color: #0a638fb4;
+        }
+
+        .opt3:hover {
+            background-color: #00a000;
+        }
+
+        .prevButton {
+            background-color: black;
+        }
+
+        /* .buttonGroup{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 70%;
+        } */
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <crowd-form>	    
+    <crowd-instructions link-text="View instructions" link-type="button">	
+        <short-summary>	
+            <p>Task: given the input human image on the left, and cartoon images on the right. </p>	
+            <p>Please choose the best matching hair style for the person. </p>	
+            <p>Input the hairstyle label</p>	
+        </short-summary>	
+        <detailed-instructions>	
+            <p>Task: given the input human image on the left, and cartoon images on the right. </p>	
+            <p>Please choose the best matching hair style for the person. </p>	
+            <p>Input the hairstyle label</p>        	
+        </detailed-instructions>	
+    </crowd-instructions>	
+    	
+    </crowd-form>  -->
+    <div class="container" id="group1">
+        <h1>1 / 3</h1>
+        <div class="imgGroup">
+            <img src="${image_cartoonA1}" alt="cartoon" class="cartoonImg" />
+            <img src="${image_person1}" alt="person" class="personImg" />
+            <img src="${image_cartoonB1}" alt="cartoon" class="cartoonImg" />
+        </div>
+        <h2>Compare the human and the cartoon hair style. Tell me which one is a better representation of the human. </h2>
+        <h2>If you believe both are acceptable/not-acceptable, pick [Both good] or [Both bad]</h2>
+        <div class="buttonGroup">
+            <!-- <button class="prevButton" disabled>Previous</button> -->
+            <button class="opt1">Left is Better</button>
+            <button class="opt0">Both are bad</button>
+            <button class="opt3">Both are ok or good</button>
+            <button class="opt2">Right is Better</button>
+        </div>
+    </div>
+
+    <div class="container hide" id="group2">
+        <h1>2 / 3</h1>
+        <div class="imgGroup">
+            <img src="${image_cartoonA2}" alt="cartoon" class="cartoonImg" />
+            <img src="${image_person2}" alt="person" class="personImg" />
+            <img src="${image_cartoonB2}" alt="cartoon" class="cartoonImg" />
+        </div>
+        <h2>Compare the human and the cartoon hair style. Tell me which one is a better representation of the human. </h2>
+        <div class="buttonGroup">
+            <!-- <button class="prevButton" disabled>Previous</button> -->
+            <button class="opt1">Left is Better</button>
+            <button class="opt0">Both are bad</button>
+            <button class="opt3">Both are ok or good</button>
+            <button class="opt2">Right is Better</button>
+        </div>
+    </div>
+
+    <div class="container hide" id="group3">
+        <h1>3 / 3</h1>
+        <div class="imgGroup">
+            <img src="${image_cartoonA3}" alt="cartoon" class="cartoonImg" />
+            <img src="${image_person3}" alt="person" class="personImg" />
+            <img src="${image_cartoonB3}" alt="cartoon" class="cartoonImg" />
+        </div>
+        <h2>Compare the human and the cartoon hair style. Tell me which one is a better representation of the human. </h2>
+        <div class="buttonGroup">
+            <!-- <button class="prevButton" disabled>Previous</button> -->
+            <button class="opt1">Left is Better</button>
+            <button class="opt0">Both are bad</button>
+            <button class="opt3">Both are ok or good</button>
+            <button class="opt2">Right is Better</button>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+    <script>
+
+        const result = {};
+
+        const group1 = document.querySelector("#group1");
+        const group2 = document.querySelector("#group2");
+        const group3 = document.querySelector("#group3");
+
+        group1.addEventListener("click", () => {
+            if(event.target.tagName === "BUTTON"){
+                result.group1 = event.target.className.replace('opt', '');
+                group1.classList.add("hide");
+                group2.classList.remove('hide');
+                group3.classList.add('hide');
+            }
+        })
+
+        group2.addEventListener("click", () => {
+            if(event.target.tagName === "BUTTON"){
+                result.group2 = event.target.className.replace('opt', '');
+                group1.classList.add("hide");
+                group2.classList.add('hide');
+                group3.classList.remove('hide');
+            }
+        })
+
+        group3.querySelector('.buttonGroup').addEventListener('click', () => {
+            result.group3 = event.target.className.replace('opt', '');
+            console.log("result", result)
+            if (result && result !== '') {
+                const urlParams = new URLSearchParams(window.location.search)
+
+                // create the form element and point it to the correct endpoint
+                const form = document.createElement('form')
+
+                console.log('turkSubmitTo: ', urlParams.get('turkSubmitTo'))
+
+                form.action = (new URL('mturk/externalSubmit', urlParams.get('turkSubmitTo'))).href
+                // form.action = (new URL('mturk/externalSubmit', 'https://www.mturk.com/')).href
+                form.method = 'post'
+
+                // attach the assignmentId
+                const inputAssignmentId = document.createElement('input')
+                inputAssignmentId.name = 'assignmentId'
+                inputAssignmentId.value = urlParams.get('assignmentId')
+                inputAssignmentId.hidden = true
+                form.appendChild(inputAssignmentId)
+
+                // Attach the data I want to send back
+                const inputCoordinates = document.createElement('input')
+                inputCoordinates.name = 'result'
+                inputCoordinates.value = JSON.stringify(result);
+                inputCoordinates.hidden = true
+                form.appendChild(inputCoordinates)
+
+                // attach the form to the HTML document and trigger submission
+                document.body.appendChild(form)
+                form.submit()
+            }
+        })
+
+    </script>
+</body>
+
+</html>
