@@ -16,7 +16,7 @@ In order to use this solution, you need to build a react website and host it as 
 
 After hosting you page, we use `iframe` in the mturk page to call your page, you can refer to `mturk_page_link_to_url.html` for an example. 
 
-*** Need help1 : Mturk has the option of providing you own link instead of doing this comlicated thing ***
+*** Need help1 : Mturk has the option of providing you own link instead of doing this complicated work around  ***
 
 
-*** Need help2 : Mturk has the API to let you automcailly create new turk tasks from you python script without using your web interface. Need to figure this out also ***
+*** Need help2 : Mturk has the API to let you automatically create new Turk tasks from your python script without using your web interface. Need to figure this out also. ***
