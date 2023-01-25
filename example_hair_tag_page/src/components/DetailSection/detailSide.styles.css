@@ -1,0 +1,109 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 5rem;
+    width: 60vw;
+}
+
+.headerContainer{
+    display: flex;
+}
+
+.groupImage{
+    width: 9rem;
+    height: 9rem;
+    background-color: #ccc;
+    margin-right: 5rem;
+}
+
+.groupTextContainer{
+    width: 30rem;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
+.groupText{
+    padding: 0rem 1.2rem;
+    font-size: 14;
+}
+
+.mainTitleContainer{
+    display: flex;
+    margin: 1rem 0;
+}
+
+.tileContainer{
+    background-color: #ccc;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.toolImage{
+    width: 5rem;
+    height: 5rem;
+    background-color: #ccc;
+    margin-left: 2rem;
+}
+
+.optionSection{
+    display: flex;
+    overflow-x: scroll;
+    width: 50rem;
+}
+
+.optionItem{
+    display: block;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    height: 220px;
+    width: 170px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+}
+
+.optionSelect{
+    display: block;
+    border: 1px solid blue;
+    border-radius: 0.25rem;
+    height: 10rem;
+    width: 100px;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.sampleItem{
+    width: 8rem;
+    height: 8rem;
+    background-color: #ccc;
+    margin-right: 1rem;
+}
+
+.nextButton{
+    margin: 2rem auto 0 auto;
+    width: 10rem;
+    height: 3rem;
+    align-self: center;
+    background-color: #78A55A;
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    align-self: center;
+}
+
+.nextButton:disabled{
+    background-color: #ccc;
+}
+
+.optionImg{
+    width: 3rem;
+    height: 3rem;
+}
+
+.optionDescription{
+    padding: 0 5px;
+    margin-top: 0.5rem;
+    overflow-y: scroll;
+}

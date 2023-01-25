@@ -1,0 +1,56 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    border-right: 1px solid black;
+    margin: 5rem 0;
+}
+
+.image{
+    width: 20rem;
+    height: 20rem;
+    background-color: #ccc;
+    align-self: center;
+}
+
+.groupContainer{
+    width: 30rem;
+    margin: 1rem auto;
+
+}
+
+.selectorContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.listContainer{
+    margin: 2rem 0;
+    align-self: center;
+}
+
+.selectionButton{
+    margin: 0 0.8rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: 1px none black;
+}
+
+.submitButton{
+    margin: 2rem auto 0 auto;
+    width: 10rem;
+    height: 3rem;
+    align-self: center;
+    background-color: #78A55A;
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    align-self: center;
+}
+
+.submitButton:disabled{
+    background-color: #ccc;
+}
