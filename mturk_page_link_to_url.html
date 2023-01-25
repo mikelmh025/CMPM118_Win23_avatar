@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+</head>
+
+<body>
+    <!-- <crowd-form>	
+    <crowd-instructions link-text="View instructions" link-type="button">	
+        <short-summary>	
+            <p>Task: given the input human image on the left, and cartoon images on the right. </p>	
+            <p>Please choose the best matching hair style for the person. </p>	
+            <p>Input the hairstyle label</p>	
+        </short-summary>	
+        <detailed-instructions>	
+            <p>Task: given the input human image on the left, and cartoon images on the right. </p>	
+            <p>Please choose the best matching hair style for the person. </p>	
+            <p>Input the hairstyle label</p>        	
+        </detailed-instructions>	
+    </crowd-instructions>	
+    	
+    </crowd-form>  -->
+
+
+
+    <!-- <img src="${image_url1}" alt="input_image" name="imgSrc" width="0" , height="0"> -->
+    <img src="${image_url1}" alt="input_image" class="imgSrc" width="0" , height="0">
+    <iframe width=100% height=100% src="https://mikelmh025.github.io/taggingAnnotation/" name="iframe"></iframe>
+
+
+
+    <script>
+
+        const imgSrc = document.querySelector('.imgSrc');
+        const img = imgSrc.src;
+        const iframe = document.querySelector('iframe');
+        iframe.onload = () => {
+            iframe.contentWindow.postMessage(img, 'https://mikelmh025.github.io/taggingAnnotation/');
+        }
+
+        window.addEventListener("message", (event) => {
+            if (typeof event.data === 'string') {
+                console.log(event.data);
+                const results = event.data
+                const urlParams = new URLSearchParams(window.location.search)
+
+                // create the form element and point it to the correct endpoint
+                const form = document.createElement('form')
+
+                console.log('turkSubmitTo: ', urlParams.get('turkSubmitTo'))
+
+                form.action = (new URL('mturk/externalSubmit', urlParams.get('turkSubmitTo'))).href
+                // form.action = (new URL('mturk/externalSubmit', 'https://www.mturk.com/')).href
+                form.method = 'post'
+
+                // attach the assignmentId
+                const inputAssignmentId = document.createElement('input')
+                inputAssignmentId.name = 'assignmentId'
+                inputAssignmentId.value = urlParams.get('assignmentId')
+                inputAssignmentId.hidden = true
+                form.appendChild(inputAssignmentId)
+
+                // Attach the data I want to send back
+                const inputCoordinates = document.createElement('input')
+                inputCoordinates.name = 'results'
+                inputCoordinates.value = JSON.stringify(results);
+                inputCoordinates.hidden = true
+                form.appendChild(inputCoordinates)
+
+                // attach the form to the HTML document and trigger submission
+                document.body.appendChild(form)
+                form.submit()
+            }
+        }, false);
+
+
+    </script>
+    <!-- TODO: Change from local to remote -->
+    <!-- <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> -->
+</body>
+
+</html>
