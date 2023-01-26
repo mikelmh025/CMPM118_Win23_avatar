@@ -72,3 +72,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+## How to deploy react app to github pages
+
+[https://github.com/gitname/react-gh-pages](https://github.com/gitname/react-gh-pages)
+
+### Issue during deployment
+fatal: A branch named 'gh-pages' already exists [Link][https://stackoverflow.com/questions/63964575/fatal-a-branch-named-gh-pages-already-exists]
+"I just rm -rf node_modules/.cache/gh-pages without git fetch --prune and it fixed the problem. – 
+axiopisty Sep 2, 2022 at 16:39"
