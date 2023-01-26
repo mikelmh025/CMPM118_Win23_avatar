@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CMPM118_Win23_avatar/hair_demo/static/css/main.a9c54102.css",
+    "main.js": "/CMPM118_Win23_avatar/hair_demo/static/js/main.0335f8b4.js",
+    "static/js/787.76089e61.chunk.js": "/CMPM118_Win23_avatar/hair_demo/static/js/787.76089e61.chunk.js",
+    "index.html": "/CMPM118_Win23_avatar/hair_demo/index.html",
+    "main.a9c54102.css.map": "/CMPM118_Win23_avatar/hair_demo/static/css/main.a9c54102.css.map",
+    "main.0335f8b4.js.map": "/CMPM118_Win23_avatar/hair_demo/static/js/main.0335f8b4.js.map",
+    "787.76089e61.chunk.js.map": "/CMPM118_Win23_avatar/hair_demo/static/js/787.76089e61.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9c54102.css",
+    "static/js/main.0335f8b4.js"
+  ]
+}
